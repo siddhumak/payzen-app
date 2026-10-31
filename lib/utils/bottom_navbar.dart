@@ -1,9 +1,6 @@
-﻿// lib/utils/bottom_navbar_pageview.dart
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:payzen_app/constant/app_gradients.dart';
 import 'package:payzen_app/constant/colors.dart';
 
 class GradientBottomNavBarPageView extends StatelessWidget {
@@ -16,121 +13,149 @@ class GradientBottomNavBarPageView extends StatelessWidget {
     required this.onTabChanged,
   });
 
-  static final _items = [
-    _BottomItem('Home', Icons.home),
-    _BottomItem('Wallet', Icons.account_balance_wallet),
-    _BottomItem('Scan', LucideIcons.qrCode),
-    _BottomItem('Cards', LucideIcons.creditCard),
-    _BottomItem('More', LucideIcons.moreVertical),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.pureWhite,
+        border: Border(
+          top: BorderSide(
+            color: Color(0xFFEBF0F3),
+            width: 1.0,
+          ),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            blurRadius: 12,
-            offset: Offset(0, -2),
+            color: Color(0x0C061C2B),
+            blurRadius: 18,
+            offset: Offset(0, -4),
           ),
         ],
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(_items.length, (i) {
-          final selected = i == currentIndex;
-
-          if (i == 2) {
-            // Special Scan Button
-            return Expanded(
-              child: GestureDetector(
-                onTap: () => onTabChanged(i),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      height: 56,
-                      width: 56,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: AppGradients.gradient1,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 10,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                        border: Border.all(color: Colors.white, width: 4),
-                      ),
-                      child: const Icon(
-                        LucideIcons.qrCode,
-                        color: Colors.white,
-                        size: 28,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Scan',
-                      style: GoogleFonts.poppins(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
-                      ),
-                    ),
-                  ],
-                ),
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: 64,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // 1. Home
+              _buildNavItem(
+                index: 0,
+                icon: LucideIcons.home,
+                label: 'Home',
+                isSelected: currentIndex == 0,
               ),
-            );
-          }
 
-          // Regular bottom nav items
-          return Expanded(
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () => onTabChanged(i),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  selected
-                      ? Container(
-                        height: 40,
-                        width: 48,
+              // 2. Payments
+              _buildNavItem(
+                index: 1,
+                icon: LucideIcons.creditCard,
+                label: 'Payments',
+                isSelected: currentIndex == 1,
+              ),
+
+              // 3. Center Elevated Scan Button
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => onTabChanged(2),
+                  behavior: HitTestBehavior.opaque,
+                  child: Center(
+                    child: Transform.translate(
+                      offset: const Offset(0, -10),
+                      child: Container(
+                        height: 54,
+                        width: 54,
                         decoration: BoxDecoration(
-                          gradient: AppGradients.gradient1,
-                          borderRadius: BorderRadius.circular(16),
+                          shape: BoxShape.circle,
+                          color: AppColors.deepTeal, // #003D46
+                          border: Border.all(
+                            color: AppColors.electricMint.withOpacity(0.55),
+                            width: 1.8,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.deepTeal.withOpacity(0.35),
+                              blurRadius: 12,
+                              offset: const Offset(0, 5),
+                            ),
+                            BoxShadow(
+                              color: AppColors.electricMint.withOpacity(0.22),
+                              blurRadius: 10,
+                              spreadRadius: 1,
+                            ),
+                          ],
                         ),
-                        child: Icon(
-                          _items[i].icon,
-                          color: Colors.white,
-                          size: 20,
+                        child: Center(
+                          child: Icon(
+                            LucideIcons.scan,
+                            color: AppColors.electricMint,
+                            size: 24,
+                          ),
                         ),
-                      )
-                      : Icon(_items[i].icon, color: Colors.black54, size: 24),
-                  const SizedBox(height: 4),
-                  Text(
-                    _items[i].label,
-                    style: GoogleFonts.poppins(
-                      fontSize: 11,
-                      color: selected ? Colors.black : Colors.black54,
+                      ),
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-          );
-        }),
+
+              // 4. Rewards
+              _buildNavItem(
+                index: 3,
+                icon: LucideIcons.star,
+                label: 'Rewards',
+                isSelected: currentIndex == 3,
+              ),
+
+              // 5. Profile
+              _buildNavItem(
+                index: 4,
+                icon: LucideIcons.user,
+                label: 'Profile',
+                isSelected: currentIndex == 4,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
-}
 
-// ✅ Move this OUTSIDE the class
-class _BottomItem {
-  final String label;
-  final IconData icon;
-  const _BottomItem(this.label, this.icon);
+  Widget _buildNavItem({
+    required int index,
+    required IconData icon,
+    required String label,
+    required bool isSelected,
+  }) {
+    final activeColor = AppColors.deepTeal; // #003D46
+    final inactiveColor = AppColors.mutedSlate; // #687986
+
+    return Expanded(
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => onTabChanged(index),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: isSelected ? activeColor : inactiveColor,
+              size: 22,
+            ),
+            const SizedBox(height: 3),
+            Text(
+              label,
+              style: GoogleFonts.inter(
+                fontSize: 11,
+                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                color: isSelected ? activeColor : inactiveColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
