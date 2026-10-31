@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/screens/main/controller/main_controller.dart';
-import 'package:m2online_recharge_app/theme/theme.dart';
+import 'package:payzen_app/screens/main/controller/main_controller.dart';
+import 'package:payzen_app/theme/theme.dart';
 import 'routes/app_routes.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'm2online recharge app',
+      title: 'PayZen',
       debugShowCheckedModeBanner: false,
       theme: neoPayTheme, // Assuming neoPayTheme is defined in theme.dart
       getPages: AppRoutes.routes,

@@ -1,8 +1,8 @@
-// lib/widgets/paytm_scan_button.dart
+﻿// lib/widgets/paytm_scan_button.dart
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/app_gradients.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/app_gradients.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class ScanButton extends StatelessWidget {
   final VoidCallback onPressed;

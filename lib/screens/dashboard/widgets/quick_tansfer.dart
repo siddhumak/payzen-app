@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/models/quick_transfer_model.dart';
-import 'package:m2online_recharge_app/routes/app_routes.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/models/quick_transfer_model.dart';
+import 'package:payzen_app/routes/app_routes.dart';
 
 class QuickTansfer extends StatelessWidget {
   const QuickTansfer({super.key});

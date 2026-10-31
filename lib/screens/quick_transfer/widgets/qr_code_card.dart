@@ -1,10 +1,10 @@
-// lib/components/qr_code_card.dart
+﻿// lib/components/qr_code_card.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/utils/custom_button_2.dart';
+import 'package:payzen_app/utils/custom_button_2.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class QRCodeCard extends StatelessWidget {

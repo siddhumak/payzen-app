@@ -1,7 +1,7 @@
-// lib/screens/wallet/widgets/offers_rewards_section.dart
+﻿// lib/screens/wallet/widgets/offers_rewards_section.dart
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class OffersRewardsSection extends StatelessWidget {
   final List<Map<String, dynamic>> offers;

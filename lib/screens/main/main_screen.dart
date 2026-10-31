@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/screens/Scanner/scanner_screen.dart';
-import 'package:m2online_recharge_app/screens/dashboard/dashboard_screen.dart';
-import 'package:m2online_recharge_app/screens/main/controller/main_controller.dart';
-import 'package:m2online_recharge_app/screens/mycards/mycard_screen.dart';
-import 'package:m2online_recharge_app/screens/wallet/wallet_screen.dart';
-import 'package:m2online_recharge_app/utils/bottom_navbar.dart';
+import 'package:payzen_app/screens/Scanner/scanner_screen.dart';
+import 'package:payzen_app/screens/dashboard/dashboard_screen.dart';
+import 'package:payzen_app/screens/main/controller/main_controller.dart';
+import 'package:payzen_app/screens/mycards/mycard_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_screen.dart';
+import 'package:payzen_app/utils/bottom_navbar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

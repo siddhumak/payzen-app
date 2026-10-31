@@ -1,7 +1,7 @@
-// lib/screens/Scanner/widgets/scanning_box.dart
+﻿// lib/screens/Scanner/widgets/scanning_box.dart
 import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/screens/Scanner/widgets/animated_scanning_line.dart';
-import 'package:m2online_recharge_app/screens/Scanner/widgets/corner_painter.dart';
+import 'package:payzen_app/screens/Scanner/widgets/animated_scanning_line.dart';
+import 'package:payzen_app/screens/Scanner/widgets/corner_painter.dart';
 
 class ScanningBox extends StatelessWidget {
   const ScanningBox({super.key});

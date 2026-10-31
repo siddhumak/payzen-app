@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class PopularBankGrid extends StatelessWidget {
   final List<Map<String, String>> banks;

@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/screens/first_time/widgets/step1.dart';
-import 'package:m2online_recharge_app/screens/first_time/widgets/step2.dart';
-import 'package:m2online_recharge_app/screens/first_time/widgets/step3.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/screens/first_time/widgets/step1.dart';
+import 'package:payzen_app/screens/first_time/widgets/step2.dart';
+import 'package:payzen_app/screens/first_time/widgets/step3.dart';
 
 class FirstTimeMainScreen extends StatelessWidget {
   FirstTimeMainScreen({super.key});

@@ -1,6 +1,6 @@
 {
-    "name": "m2online_recharge_app",
-    "short_name": "m2online_recharge_app",
+    "name": "PayZen",
+    "short_name": "PayZen",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

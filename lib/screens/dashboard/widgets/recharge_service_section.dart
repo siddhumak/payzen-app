@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/add_bill_card.dart';
-import 'package:m2online_recharge_app/models/recharge_service_model.dart'; // <-- import your model
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/screens/dashboard/widgets/add_bill_card.dart';
+import 'package:payzen_app/models/recharge_service_model.dart'; // <-- import your model
 
 class RechargeServicesSection extends StatelessWidget {
   const RechargeServicesSection({super.key});

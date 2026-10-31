@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/components/custom_appbar.dart';
-import 'package:m2online_recharge_app/components/custom_drawer.dart';
-import 'package:m2online_recharge_app/screens/wallet/widgets/offers_rewards_section.dart';
-import 'package:m2online_recharge_app/screens/wallet/widgets/quick_action_section.dart';
-import 'package:m2online_recharge_app/screens/wallet/widgets/recent_transaction_section.dart';
-import 'package:m2online_recharge_app/screens/wallet/widgets/wallet_card.dart';
+import 'package:payzen_app/components/custom_appbar.dart';
+import 'package:payzen_app/components/custom_drawer.dart';
+import 'package:payzen_app/screens/wallet/widgets/offers_rewards_section.dart';
+import 'package:payzen_app/screens/wallet/widgets/quick_action_section.dart';
+import 'package:payzen_app/screens/wallet/widgets/recent_transaction_section.dart';
+import 'package:payzen_app/screens/wallet/widgets/wallet_card.dart';
 
 class WalletScreen extends StatefulWidget {
   const WalletScreen({super.key});

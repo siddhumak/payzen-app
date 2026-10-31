@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/payment_method_card.dart';
-import 'package:m2online_recharge_app/utils/custom_button.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/payment_method_card.dart';
+import 'package:payzen_app/utils/custom_button.dart';
 
 class ReviewPayScreen extends StatelessWidget {
   ReviewPayScreen({super.key});

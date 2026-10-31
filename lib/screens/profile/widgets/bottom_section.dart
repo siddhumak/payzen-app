@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/screens/profile/widgets/profile_listtile.dart';
+import 'package:payzen_app/screens/profile/widgets/profile_listtile.dart';
 
 class BottomSection extends StatelessWidget {
   const BottomSection({super.key});

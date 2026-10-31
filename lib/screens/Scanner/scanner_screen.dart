@@ -1,8 +1,8 @@
-import 'package:camera/camera.dart';
+﻿import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/screens/Scanner/widgets/scan_app_bar.dart';
-import 'package:m2online_recharge_app/screens/Scanner/widgets/scan_bottom_card.dart';
-import 'package:m2online_recharge_app/screens/Scanner/widgets/scanning_box.dart';
+import 'package:payzen_app/screens/Scanner/widgets/scan_app_bar.dart';
+import 'package:payzen_app/screens/Scanner/widgets/scan_bottom_card.dart';
+import 'package:payzen_app/screens/Scanner/widgets/scanning_box.dart';
 
 class ScannerScreen extends StatefulWidget {
   const ScannerScreen({super.key});

@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/components/custom_header.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/models/contact_model.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/pay_to_contact_screen.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/recent_contacts_widgets.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/refer_contact_card.dart';
+import 'package:payzen_app/components/custom_header.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/models/contact_model.dart';
+import 'package:payzen_app/screens/quick_transfer/pay_to_contact_screen.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/recent_contacts_widgets.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/refer_contact_card.dart';
 
 class ToMobileScreen extends StatefulWidget {
   const ToMobileScreen({super.key});

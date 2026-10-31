@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class ElectricityBillEntryScreen extends StatefulWidget {
   final Map<String, dynamic>? biller;

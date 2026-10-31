@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/components/search_bar.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/filter_chips.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/refer_actions.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/refer_contact_card.dart';
+import 'package:payzen_app/components/search_bar.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/filter_chips.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/refer_actions.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/refer_contact_card.dart';
 
 class ReferEarnScreen extends StatefulWidget {
   const ReferEarnScreen({super.key});

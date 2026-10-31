@@ -1,10 +1,10 @@
-// lib/utils/bottom_navbar_pageview.dart
+﻿// lib/utils/bottom_navbar_pageview.dart
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/app_gradients.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/app_gradients.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class GradientBottomNavBarPageView extends StatelessWidget {
   final int currentIndex;

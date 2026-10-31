@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:m2online_recharge_app/constant/app_gradients.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
-import 'package:m2online_recharge_app/utils/gradient_button.dart';
+import 'package:payzen_app/constant/app_gradients.dart';
+import 'package:payzen_app/constant/colors.dart';
+import 'package:payzen_app/utils/gradient_button.dart';
 
 class Step1Widget extends StatelessWidget {
   final VoidCallback onNext;

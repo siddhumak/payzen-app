@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/components/custom_appbar.dart';
-import 'package:m2online_recharge_app/components/custom_drawer.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/cashcheck_banner.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/finance_service_section.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/free_tools_section.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/quick_links_section.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/quick_tansfer.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/recharge_service_section.dart';
-import 'package:m2online_recharge_app/screens/dashboard/widgets/travel_section_card.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:payzen_app/components/custom_appbar.dart';
+import 'package:payzen_app/components/custom_drawer.dart';
+import 'package:payzen_app/screens/dashboard/widgets/cashcheck_banner.dart';
+import 'package:payzen_app/screens/dashboard/widgets/finance_service_section.dart';
+import 'package:payzen_app/screens/dashboard/widgets/free_tools_section.dart';
+import 'package:payzen_app/screens/dashboard/widgets/quick_links_section.dart';
+import 'package:payzen_app/screens/dashboard/widgets/quick_tansfer.dart';
+import 'package:payzen_app/screens/dashboard/widgets/recharge_service_section.dart';
+import 'package:payzen_app/screens/dashboard/widgets/travel_section_card.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

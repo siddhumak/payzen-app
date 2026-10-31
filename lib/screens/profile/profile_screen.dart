@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/screens/profile/widgets/bottom_section.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:payzen_app/screens/profile/widgets/bottom_section.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

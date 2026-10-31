@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:m2online_recharge_app/constant/app_gradients.dart';
+import 'package:payzen_app/constant/app_gradients.dart';
 
 /// A reusable AppBar for collection-related screens.
 class CustomeAppbar extends StatelessWidget implements PreferredSizeWidget {

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/constant/app_gradients.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:payzen_app/constant/app_gradients.dart';
 
 class SelectOperatorCard extends StatelessWidget {
   final String selectedOperator;

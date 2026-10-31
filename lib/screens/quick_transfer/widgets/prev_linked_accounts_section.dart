@@ -1,7 +1,7 @@
-// File: components/previously_linked_accounts.dart
+﻿// File: components/previously_linked_accounts.dart
 
 import 'package:flutter/material.dart';
-import 'package:m2online_recharge_app/constant/colors.dart';
+import 'package:payzen_app/constant/colors.dart';
 
 class PreviouslyLinkedAccounts extends StatelessWidget {
   final List<Map<String, String>> accounts;

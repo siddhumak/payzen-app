@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/qr_appbar.dart';
-import 'package:m2online_recharge_app/screens/quick_transfer/widgets/qr_code_card.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/qr_appbar.dart';
+import 'package:payzen_app/screens/quick_transfer/widgets/qr_code_card.dart';
 
 class QrScreen extends StatelessWidget {
   const QrScreen({super.key});
