@@ -1,24 +1,46 @@
 import 'package:flutter/material.dart';
-// This file defines the colors and gradients used in the app.
 
+/// PayZen Design System Color Palette
 class AppColors {
-  static const Color primary = Color(0xFFB71C1C); // Netflix-style red
+  // Brand Primary & Secondary
+  static const Color midnightNavy = Color(0xFF061C2B); // Primary brand
+  static const Color deepTeal = Color(0xFF003D46);     // Secondary brand
+  static const Color electricMint = Color(0xFF19C6AE); // Signature accent
+  static const Color warmIvory = Color(0xFFF7F5EF);    // Main background (light mode)
+  static const Color pureWhite = Color(0xFFFFFFFF);    // Surface & cards
+  static const Color slateBlue = Color(0xFF142D3C);    // Card background (dark mode)
 
-  static const Color primarydark = Color(0xFFD32F2F); // Deeper Red
-  static const Color secondary = Color(0xFFFB7185); // Soft pink-red
-  static const Color background = Color(0xFF0D0C1D); // Deep dark background
-  static const Color whiteDim = Color(0xCCFFFFFF); // Semi-transparent white
+  // Typography
+  static const Color deepNavyText = Color(0xFF172B3A); // Primary text
+  static const Color mutedSlate = Color(0xFF687986);   // Secondary text
+
+  // Feedback Colors
+  static const Color successGreen = Color(0xFF168568); // Successful payments
+  static const Color errorCoral = Color(0xFFD95C52);   // Errors & warnings
+
+  // Neutral Tints & Borders
+  static const Color borderLight = Color(0xFFE5E7EB);
+  static const Color borderSubtle = Color(0x1F172B3A);
+  static const Color cardShadow = Color(0x0D061C2B);
+  static const Color surfaceGrey = Color(0xFFF3F4F6);
+
+  // Backward-compatibility aliases for legacy code
+  static const Color primary = midnightNavy;
+  static const Color primarydark = deepTeal;
+  static const Color secondary = electricMint;
+  static const Color background = warmIvory;
+  static const Color whiteDim = Color(0xCCFFFFFF);
   static const Color blurWhite05 = Color.fromRGBO(255, 255, 255, 0.05);
   static const Color blurWhite10 = Color.fromRGBO(255, 255, 255, 0.10);
 
   static final List<Color> avatarColors = [
-    Color(0xFFEF4444), // Red-500
-    Color(0xFFF59E0B), // Amber-500
-    Colors.green,
-    Colors.lightGreen,
-    Colors.amber,
-    Colors.deepPurple,
-    Colors.blueAccent,
-    Color(0xFFF97316), // Orange-500
+    const Color(0xFF003D46),
+    const Color(0xFF168568),
+    const Color(0xFF19C6AE),
+    const Color(0xFF0A5C67),
+    const Color(0xFF142D3C),
+    const Color(0xFFD95C52),
+    const Color(0xFF2563EB),
+    const Color(0xFF7C3AED),
   ];
 }
