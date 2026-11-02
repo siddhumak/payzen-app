@@ -241,7 +241,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ],
                             ),
 
-                            const SizedBox(height: 11),
+                            const SizedBox(height: 14),
 
                             // Greeting Block
                             Text(
@@ -281,21 +281,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ),
                             ),
 
-                            const SizedBox(height: 12),
+                            const SizedBox(height: 14),
 
-                            // Total Balance Card
+                            // Total Balance Card (Overlapping Card)
                             Container(
                               width: double.infinity,
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0,
-                                vertical: 14.0,
+                                vertical: 16.0,
                               ),
                               decoration: BoxDecoration(
                                 color: const Color(0xFF0C222E),
                                 borderRadius: BorderRadius.circular(22),
                                 border: Border.all(
-                                  color: const Color(0xFF7DE2D0),
-                                  width: 1.5,
+                                  color: const Color(
+                                    0xFF1D5A6E,
+                                  ), // Glowing cyan border
+                                  width: 1.2,
                                 ),
                                 boxShadow: [
                                   BoxShadow(
@@ -365,7 +367,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     ],
                                   ),
 
-                                  const SizedBox(height: 8),
+                                  const SizedBox(height: 12),
 
                                   // Subtle Card Divider
                                   Container(
@@ -373,7 +375,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     color: Colors.white.withOpacity(0.08),
                                   ),
 
-                                  const SizedBox(height: 8),
+                                  const SizedBox(height: 12),
 
                                   // Bank Account Selector Row
                                   Row(
@@ -414,37 +416,118 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
 
               // =============================================================
-              // 2. Warm Ivory Body Content Sheet
+              // 2. Warm Ivory Body Content Sheet (Overlaps upward by 54px)
               // =============================================================
               Transform.translate(
                 offset: const Offset(0, -54),
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(18.0, 50.0, 18.0, 32.0),
+                  padding: const EdgeInsets.fromLTRB(18.0, 50.0, 18.0, 36.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () => Get.toNamed(AppRoutes.addbank),
+                          borderRadius: BorderRadius.circular(20),
+                          child: Ink(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 15,
+                            ),
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [AppColors.deepTeal, Color(0xFF087E78)],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: AppColors.cardShadow,
+                                  blurRadius: 14,
+                                  offset: Offset(0, 5),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 46,
+                                  height: 46,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.13),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: const Icon(
+                                    LucideIcons.landmark,
+                                    color: AppColors.electricMint,
+                                    size: 23,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Link your bank account',
+                                        style: GoogleFonts.inter(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 3),
+                                      Text(
+                                        'Set up UPI and start making payments',
+                                        style: GoogleFonts.inter(
+                                          color: const Color(0xFFD4E9E8),
+                                          fontSize: 12,
+                                          height: 1.3,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Icon(
+                                  LucideIcons.arrowRight,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      // Quick Actions & Services Floating Card
                       Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
+                          horizontal: 8,
+                          vertical: 12,
                         ),
                         decoration: BoxDecoration(
                           color: AppColors.pureWhite,
-                          borderRadius: BorderRadius.circular(26),
+                          borderRadius: BorderRadius.circular(22),
+                          border: Border.all(
+                            color: const Color(0xFFE8EEF2),
+                            width: 1.0,
+                          ),
                           boxShadow: const [
                             BoxShadow(
                               color: Color(0x08061C2B),
-                              blurRadius: 12,
+                              blurRadius: 10,
                               offset: Offset(0, 3),
                             ),
                           ],
                         ),
                         child: Column(
                           children: [
-                            // Quick Actions
+                            // Quick Actions (Row 1)
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 _buildQuickActionButton(
                                   icon: LucideIcons.scan,
@@ -465,15 +548,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 _buildQuickActionButton(
                                   icon: LucideIcons.landmark,
                                   label: 'Bank Transfer',
-                                  onTap: () => Get.toNamed(AppRoutes.toBank),
+                                  onTap: () => Get.toNamed(AppRoutes.addbank),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
-                            // Recharge & Bill Services
+                            const SizedBox(height: 12),
+                            // Recharge & Bills Services (Row 2)
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 _buildServiceButton(
                                   icon: LucideIcons.smartphone,
@@ -488,9 +569,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   onTap: () => Get.toNamed(AppRoutes.billlist),
                                 ),
                                 _buildServiceButton(
-                                  icon: LucideIcons.satellite,
-                                  label: 'DTH',
-                                  onTap: () {},
+                                  icon: LucideIcons.wallet,
+                                  label: 'Wallet',
+                                  onTap: () => Get.toNamed(AppRoutes.wallet),
                                 ),
                                 _buildServiceButton(
                                   icon: LucideIcons.moreHorizontal,
@@ -503,7 +584,113 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
 
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
+
+                      // PayZen Wallet activation prompt
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () => Get.toNamed(AppRoutes.walletActivation),
+                          borderRadius: BorderRadius.circular(18),
+                          child: Ink(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.pureWhite,
+                              borderRadius: BorderRadius.circular(18),
+                              border: Border.all(
+                                color: const Color(0xFFDCEFEA),
+                              ),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color(0x08061C2B),
+                                  blurRadius: 12,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(13),
+                                  child: Image.asset(
+                                    'assets/images/payzen_wallet_art.png',
+                                    width: 44,
+                                    height: 44,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'PayZen Wallet',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w700,
+                                          color: AppColors.deepNavyText,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Text(
+                                        'Activate your bank wallet to add money and pay easily.',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 10,
+                                          height: 1.3,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.deepNavyText,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    gradient: AppGradients.primaryCTA,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 9,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          'Activate',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        const Icon(
+                                          LucideIcons.arrowRight,
+                                          size: 13,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 16),
 
                       // Scrollable Promotional Banner Carousel
                       AspectRatio(
@@ -595,13 +782,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           GestureDetector(
                             onTap: () {},
                             behavior: HitTestBehavior.opaque,
-                            child: Text(
-                              'View All',
-                              style: GoogleFonts.inter(
-                                fontSize: 13.5,
-                                fontWeight: FontWeight.w700,
-                                color: const Color(0xFF009384),
-                              ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'View All',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color(0xFF009384),
+                                  ),
+                                ),
+                                const SizedBox(width: 3),
+                                const Icon(
+                                  LucideIcons.chevronRight,
+                                  size: 15,
+                                  color: Color(0xFF009384),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -609,15 +806,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                       const SizedBox(height: 14),
 
-                      // Recent Transaction Tile (Rahul Sharma)
+                      // Recent Transactions Card (Multi-item Activity Card)
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 12,
-                        ),
                         decoration: BoxDecoration(
                           color: AppColors.pureWhite,
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             color: const Color(0xFFE8EEF2),
                             width: 1.0,
@@ -625,78 +818,571 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           boxShadow: const [
                             BoxShadow(
                               color: Color(0x06061C2B),
-                              blurRadius: 8,
-                              offset: Offset(0, 2),
+                              blurRadius: 10,
+                              offset: Offset(0, 3),
                             ),
                           ],
                         ),
-                        child: Row(
+                        child: Column(
                           children: [
-                            // Mint circle with Deep Teal Up-Right Arrow
-                            Container(
-                              width: 44,
-                              height: 44,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xFF86E5D3),
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  LucideIcons.arrowUpRight,
-                                  size: 21,
-                                  color: Color(0xFF003D46),
-                                ),
-                              ),
+                            // 1. Rahul Sharma
+                            _buildActivityTile(
+                              icon: LucideIcons.arrowUpRight,
+                              iconColor: const Color(0xFF003D46),
+                              iconBg: const Color(0xFF86E5D3),
+                              title: 'Rahul Sharma',
+                              subtitle: 'Paid',
+                              amount: '- ₹1,000',
+                              timestamp: '15 Oct, 10:30 AM',
+                            ),
+                            const Divider(
+                              height: 1,
+                              indent: 64,
+                              color: Color(0xFFF0F4F7),
                             ),
 
-                            const SizedBox(width: 14),
-
-                            // Name & Timestamp
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Rahul Sharma',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.deepNavyText,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 3),
-                                  Text(
-                                    'Paid • 15 Oct, 10:30 AM',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.mutedSlate,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            // 2. Electricity Bill
+                            _buildActivityTile(
+                              imageAsset:
+                                  'assets/images/icon_3d_electricity.png',
+                              icon: LucideIcons.zap,
+                              iconColor: const Color(0xFFF59E0B),
+                              iconBg: const Color(0xFFFEF3C7),
+                              title: 'Electricity Bill',
+                              subtitle: 'MSEDCL • Paid',
+                              amount: '₹1,240.00',
+                              timestamp: 'Today, 11:26 AM',
+                            ),
+                            const Divider(
+                              height: 1,
+                              indent: 64,
+                              color: Color(0xFFF0F4F7),
                             ),
 
-                            const SizedBox(width: 8),
+                            // 3. Mobile Recharge
+                            _buildActivityTile(
+                              imageAsset: 'assets/images/icon_3d_mobile.png',
+                              icon: LucideIcons.smartphone,
+                              iconColor: const Color(0xFF3B82F6),
+                              iconBg: const Color(0xFFEFF6FF),
+                              title: 'Mobile Recharge',
+                              subtitle: 'Jio • ₹349 • Paid',
+                              amount: '₹349.00',
+                              timestamp: 'Yesterday, 06:18 PM',
+                            ),
+                            const Divider(
+                              height: 1,
+                              indent: 64,
+                              color: Color(0xFFF0F4F7),
+                            ),
 
-                            // Amount
-                            Text(
-                              '- ₹1,000',
-                              style: GoogleFonts.inter(
-                                fontSize: 16.5,
-                                fontWeight: FontWeight.w800,
-                                color: AppColors.deepNavyText,
-                              ),
+                            // 4. UPI Payment to Rohit Patil
+                            _buildActivityTile(
+                              imageAsset:
+                                  'assets/images/icon_3d_send_plane.png',
+                              icon: LucideIcons.send,
+                              iconColor: const Color(0xFF0D9488),
+                              iconBg: const Color(0xFFE6F9F5),
+                              title: 'UPI Payment',
+                              subtitle: 'to Rohit Patil',
+                              amount: '₹500.00',
+                              timestamp: 'Yesterday, 02:07 PM',
                             ),
                           ],
                         ),
                       ),
 
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 28),
+
+                      // =====================================================
+                      // 3. Recharge & Bills Section (8 Items Grid)
+                      // =====================================================
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Recharge & Bills',
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: AppColors.deepNavyText,
+                              letterSpacing: -0.3,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => Get.toNamed(AppRoutes.billlist),
+                            behavior: HitTestBehavior.opaque,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'View All',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color(0xFF009384),
+                                  ),
+                                ),
+                                const SizedBox(width: 3),
+                                const Icon(
+                                  LucideIcons.chevronRight,
+                                  size: 15,
+                                  color: Color(0xFF009384),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 14),
+
+                      // Row 1 of Recharge & Bills
+                      Row(
+                        children: [
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_mobile.png',
+                            fallbackIcon: LucideIcons.smartphone,
+                            iconColor: const Color(0xFF3B82F6),
+                            label: 'Mobile\nRecharge',
+                            onTap: () => Get.toNamed(AppRoutes.mobilerecharge),
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_electricity.png',
+                            fallbackIcon: LucideIcons.zap,
+                            iconColor: const Color(0xFFF59E0B),
+                            label: 'Electricity',
+                            onTap: () => Get.toNamed(AppRoutes.billlist),
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/payzen_wallet_art.png',
+                            fallbackIcon: LucideIcons.wallet,
+                            iconColor: AppColors.deepTeal,
+                            label: 'Wallet',
+                            onTap: () => Get.toNamed(AppRoutes.wallet),
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_fastag.png',
+                            fallbackIcon: LucideIcons.creditCard,
+                            iconColor: const Color(0xFF10B981),
+                            label: 'FASTag',
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      // Row 2 of Recharge & Bills
+                      Row(
+                        children: [
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_rent.png',
+                            fallbackIcon: LucideIcons.home,
+                            iconColor: const Color(0xFF8B5CF6),
+                            label: 'Rent',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_credit_card.png',
+                            fallbackIcon: LucideIcons.creditCard,
+                            iconColor: const Color(0xFF2563EB),
+                            label: 'Credit Card',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_loan.png',
+                            fallbackIcon: LucideIcons.banknote,
+                            iconColor: const Color(0xFF0284C7),
+                            label: 'Loan\nRepayment',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 10),
+                          _buildCardServiceTile(
+                            imageAsset: 'assets/images/icon_3d_more.png',
+                            fallbackIcon: LucideIcons.moreHorizontal,
+                            iconColor: AppColors.deepNavyText,
+                            label: 'More',
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 22),
+
+                      // -----------------------------------------------------
+                      // Banner: "Pay bills on time. Stay in control."
+                      // -----------------------------------------------------
+                      GestureDetector(
+                        onTap: () => Get.toNamed(AppRoutes.billlist),
+                        behavior: HitTestBehavior.opaque,
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color(0x08061C2B),
+                                blurRadius: 10,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(18),
+                            child: AspectRatio(
+                              aspectRatio:
+                                  1024 /
+                                  280, // Consistent ~3.65:1 ratio matching promo banners
+                              child: Image.asset(
+                                'assets/images/banner_pay_bills.png',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // =====================================================
+                      // 4. Travel & Transit Section (4 Items Row)
+                      // =====================================================
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Travel & Transit',
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: AppColors.deepNavyText,
+                              letterSpacing: -0.3,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            behavior: HitTestBehavior.opaque,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'View All',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color(0xFF009384),
+                                  ),
+                                ),
+                                const SizedBox(width: 3),
+                                const Icon(
+                                  LucideIcons.chevronRight,
+                                  size: 15,
+                                  color: Color(0xFF009384),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 14),
+
+                      // 4 Transit Items (Rich Visual Cards Matching Reference)
+                      Row(
+                        children: [
+                          _buildTravelCard(
+                            imageAsset: 'assets/images/card_travel_flights.png',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 8),
+                          _buildTravelCard(
+                            imageAsset: 'assets/images/card_travel_bus.png',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 8),
+                          _buildTravelCard(
+                            imageAsset: 'assets/images/card_travel_train.png',
+                            onTap: () {},
+                          ),
+                          const SizedBox(width: 8),
+                          _buildTravelCard(
+                            imageAsset: 'assets/images/card_travel_hotels.png',
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 22),
+
+                      // -----------------------------------------------------
+                      // Banner: "Save on your next trip"
+                      // -----------------------------------------------------
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFE2F6F4),
+                          borderRadius: BorderRadius.circular(18),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0x08061C2B),
+                              blurRadius: 10,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(18),
+                          child: AspectRatio(
+                            aspectRatio: 1024 / 280,
+                            child: Image.asset(
+                              'assets/images/Travel Savings Banner with Airplane Illustration.png',
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.center,
+                              errorBuilder:
+                                  (context, error, stackTrace) => Center(
+                                    child: Text(
+                                      'Save on your next trip',
+                                      style: GoogleFonts.inter(
+                                        color: AppColors.deepNavyText,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // =====================================================
+                      // 5. Offers & Rewards Section (2 Side-by-Side Cards)
+                      // =====================================================
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Offers & Rewards',
+                            style: GoogleFonts.inter(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                              color: AppColors.deepNavyText,
+                              letterSpacing: -0.3,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            behavior: HitTestBehavior.opaque,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'View All',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color(0xFF009384),
+                                  ),
+                                ),
+                                const SizedBox(width: 4),
+                                const Icon(
+                                  LucideIcons.arrowRight,
+                                  size: 14,
+                                  color: Color(0xFF009384),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 14),
+
+                      // 2 Cards Side-by-Side
+                      Row(
+                        children: [
+                          // Card 1: Cashback on everyday payments
+                          Expanded(
+                            child: Container(
+                              height: 110,
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFEBF7F4),
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: const Color(0xFFD6EFEA),
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Cashback on\neveryday payments',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.5,
+                                          fontWeight: FontWeight.w800,
+                                          color: AppColors.deepNavyText,
+                                          height: 1.2,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        'Get discounts and\ncashback on recharges...',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.mutedSlate,
+                                          height: 1.2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Positioned(
+                                    right: -2,
+                                    bottom: -2,
+                                    child: Image.asset(
+                                      'assets/images/hero_gift_coin.png',
+                                      width: 48,
+                                      height: 48,
+                                      fit: BoxFit.contain,
+                                      errorBuilder:
+                                          (_, __, ___) => const SizedBox(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(width: 12),
+
+                          // Card 2: Discover rewards for you
+                          Expanded(
+                            child: Container(
+                              height: 110,
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFAF7EE),
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: const Color(0xFFEDE4D2),
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Discover\nrewards for you',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.5,
+                                          fontWeight: FontWeight.w800,
+                                          color: AppColors.deepNavyText,
+                                          height: 1.2,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        'Exclusive offers,\nvouchers & deals.',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.mutedSlate,
+                                          height: 1.2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Positioned(
+                                    right: -2,
+                                    bottom: -2,
+                                    child: Image.asset(
+                                      'assets/images/hero_coupon.png',
+                                      width: 48,
+                                      height: 48,
+                                      fit: BoxFit.contain,
+                                      errorBuilder:
+                                          (_, __, ___) => const SizedBox(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 28),
+
+                      // =====================================================
+                      // 6. Financial Services Section (4 Tiles)
+                      // =====================================================
+                      Text(
+                        'Financial Services',
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.deepNavyText,
+                          letterSpacing: -0.3,
+                        ),
+                      ),
+
+                      const SizedBox(height: 14),
+
+                      // Financial Service List Tiles
+                      _buildFinancialTile(
+                        iconAsset: 'assets/images/ico_credit_score.png',
+                        title: 'Credit Score',
+                        subtitle: 'Check and monitor your credit score',
+                        fallbackIcon: LucideIcons.gauge,
+                        fallbackColor: const Color(0xFF0D9488),
+                        onTap: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      _buildFinancialTile(
+                        iconAsset: 'assets/images/ico_digital_gold.png',
+                        title: 'Digital Gold',
+                        subtitle: 'Buy and manage digital gold',
+                        fallbackIcon: LucideIcons.coins,
+                        fallbackColor: const Color(0xFFEAB308),
+                        onTap: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      _buildFinancialTile(
+                        iconAsset: 'assets/images/ico_insurance.png',
+                        title: 'Insurance',
+                        subtitle: 'Explore insurance for you and your family',
+                        fallbackIcon: LucideIcons.shieldCheck,
+                        fallbackColor: const Color(0xFF3B82F6),
+                        onTap: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      _buildFinancialTile(
+                        iconAsset: 'assets/images/ico_personal_loans.png',
+                        title: 'Personal Loans',
+                        subtitle: 'Explore loan options for your needs',
+                        fallbackIcon: LucideIcons.banknote,
+                        fallbackColor: const Color(0xFF10B981),
+                        onTap: () {},
+                      ),
+
+                      const SizedBox(height: 40),
                     ],
                   ),
                 ),
@@ -730,8 +1416,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 color:
                     isSpecial
                         ? const Color(0xFFCEF4EC) // Light mint for Scan & Pay
-                        : null,
-                gradient: isSpecial ? null : AppGradients.primaryCTA,
+                        : AppColors.deepTeal, // Deep teal for others (#003D46)
                 borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   BoxShadow(
@@ -818,6 +1503,318 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   height: 1.2,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Activity Tile for Recent Activity Card
+  Widget _buildActivityTile({
+    String? imageAsset,
+    IconData? icon,
+    required Color iconColor,
+    required Color iconBg,
+    required String title,
+    required String subtitle,
+    required String amount,
+    required String timestamp,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
+      child: Row(
+        children: [
+          // Circular Icon Badge
+          Container(
+            width: 42,
+            height: 42,
+            decoration: BoxDecoration(shape: BoxShape.circle, color: iconBg),
+            child: Center(
+              child:
+                  imageAsset != null
+                      ? Image.asset(
+                        imageAsset,
+                        width: 24,
+                        height: 24,
+                        fit: BoxFit.contain,
+                        errorBuilder:
+                            (_, __, ___) => Icon(
+                              icon ?? LucideIcons.zap,
+                              size: 20,
+                              color: iconColor,
+                            ),
+                      )
+                      : Icon(
+                        icon ?? LucideIcons.zap,
+                        size: 20,
+                        color: iconColor,
+                      ),
+            ),
+          ),
+          const SizedBox(width: 14),
+
+          // Title & Subtitle
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontSize: 14.5,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.deepNavyText,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.mutedSlate,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(width: 8),
+
+          // Amount & Timestamp + Chevron
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    amount,
+                    style: GoogleFonts.inter(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.deepNavyText,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    timestamp,
+                    style: GoogleFonts.inter(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.mutedSlate,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(width: 6),
+              const Icon(
+                LucideIcons.chevronRight,
+                size: 16,
+                color: Color(0xFF8FAAB8),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Card Service Tile for Recharge & Transit Grids (Full Card enclosing Icon + Label)
+  Widget _buildCardServiceTile({
+    String? imageAsset,
+    IconData? fallbackIcon,
+    Color? iconColor,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          height: 96,
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+          decoration: BoxDecoration(
+            color: AppColors.pureWhite,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFFE8EEF2), width: 1.0),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x06061C2B),
+                blurRadius: 8,
+                offset: Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (imageAsset != null)
+                Image.asset(
+                  imageAsset,
+                  width: 34,
+                  height: 34,
+                  fit: BoxFit.contain,
+                  errorBuilder:
+                      (_, __, ___) => Icon(
+                        fallbackIcon ?? LucideIcons.sparkles,
+                        size: 26,
+                        color: iconColor ?? AppColors.deepTeal,
+                      ),
+                )
+              else
+                Icon(
+                  fallbackIcon ?? LucideIcons.sparkles,
+                  size: 26,
+                  color: iconColor ?? AppColors.deepTeal,
+                ),
+              const SizedBox(height: 7),
+              Text(
+                label,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.inter(
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.deepNavyText,
+                  height: 1.15,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Travel & Transit Rich Visual Card
+  Widget _buildTravelCard({
+    required String imageAsset,
+    required VoidCallback onTap,
+  }) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.pureWhite,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFFE8EEF2), width: 1.0),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x06061C2B),
+                blurRadius: 8,
+                offset: Offset(0, 2),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: AspectRatio(
+              aspectRatio:
+                  0.90, // Generous responsive vertical ratio (~88-94px)
+              child: Image.asset(
+                imageAsset,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Financial Services List Tile
+  Widget _buildFinancialTile({
+    required String iconAsset,
+    required String title,
+    required String subtitle,
+    required IconData fallbackIcon,
+    required Color fallbackColor,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: AppColors.pureWhite,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: const Color(0xFFE8EEF2), width: 1.0),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x05061C2B),
+              blurRadius: 8,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            // Icon
+            SizedBox(
+              width: 38,
+              height: 38,
+              child: Center(
+                child: Image.asset(
+                  iconAsset,
+                  width: 36,
+                  height: 36,
+                  fit: BoxFit.contain,
+                  errorBuilder:
+                      (_, __, ___) =>
+                          Icon(fallbackIcon, size: 24, color: fallbackColor),
+                ),
+              ),
+            ),
+
+            const SizedBox(width: 14),
+
+            // Title & Subtitle
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontSize: 14.5,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.deepNavyText,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.mutedSlate,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const Icon(
+              LucideIcons.chevronRight,
+              size: 18,
+              color: Color(0xFF8FAAB8),
             ),
           ],
         ),

@@ -33,8 +33,8 @@ class QuickTansfer extends StatelessWidget {
         onTap: () => Get.offNamed(AppRoutes.toBank),
       ),
       TransferAction(
-        icon: LucideIcons.refreshCw,
-        label: 'To Self A/c',
+        icon: LucideIcons.building2,
+        label: 'Link Bank',
         gradient: [AppColors.primary, AppColors.primarydark],
         shadow: BoxShadow(color: AppColors.secondary),
         onTap: () => Get.offNamed(AppRoutes.addbank),

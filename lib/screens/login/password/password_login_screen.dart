@@ -214,7 +214,7 @@ class _PasswordLoginScreenState extends State<PasswordLoginScreen> {
                                 Center(
                                   child: GestureDetector(
                                     onTap: () {
-                                      Get.offNamed('/register');
+                                      Get.offNamed('/loginselect');
                                     },
                                     child: RichText(
                                       text: TextSpan(

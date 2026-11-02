@@ -26,6 +26,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
   Timer? _countdownTimer;
   bool _canResend = false;
   bool _isVerifying = false;
+  String _otpFlow = 'login';
 
   @override
   void initState() {
@@ -33,6 +34,12 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
 
     // Read phone passed from LoginSelectionScreen
     final args = Get.arguments;
+    if (args is Map && args['flow'] is String) {
+      _otpFlow = args['flow'] as String;
+      if (_otpFlow == 'wallet_aadhaar') {
+        _phoneNumber = 'your Aadhaar-linked mobile number';
+      }
+    }
     if (args != null && args is Map && args['phone'] != null) {
       final raw = args['phone'].toString().trim();
       if (raw.isNotEmpty) {
@@ -136,7 +143,18 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
       // Smooth simulation to navigate into main application
       Future.delayed(const Duration(milliseconds: 600), () {
         if (mounted) {
-          Get.offAllNamed(AppRoutes.main);
+          if (_otpFlow == 'wallet_activation') {
+            Get.offNamed(AppRoutes.walletAadhaarVerification);
+          } else if (_otpFlow == 'wallet_aadhaar') {
+            Get.offNamed(AppRoutes.walletDetails);
+          } else if (_otpFlow == 'signup') {
+            Get.offNamed(
+              AppRoutes.signupProgress,
+              arguments: {'phone': _phoneNumber},
+            );
+          } else {
+            Get.offAllNamed(AppRoutes.main);
+          }
         }
       });
     }
@@ -226,7 +244,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                           style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
-                            color: AppColors.electricMint,
+                            color: const Color(0xFF009384),
                             letterSpacing: 0.3,
                           ),
                         ),
@@ -259,7 +277,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                                       style: GoogleFonts.inter(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w700,
-                                        color: AppColors.electricMint,
+                                        color: const Color(0xFF009384),
                                       ),
                                     ),
                                   ),
@@ -278,7 +296,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
                                             '00:${_secondsRemaining.toString().padLeft(2, '0')}',
                                         style: const TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          color: AppColors.electricMint,
+                                          color: Color(0xFF009384),
                                         ),
                                       ),
                                     ],

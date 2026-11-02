@@ -48,10 +48,10 @@ class GradientBottomNavBarPageView extends StatelessWidget {
                 isSelected: currentIndex == 0,
               ),
 
-              // 2. Payments
+              // 2. Payments (Swap arrows icon matching design)
               _buildNavItem(
                 index: 1,
-                icon: LucideIcons.creditCard,
+                icon: LucideIcons.arrowLeftRight,
                 label: 'Payments',
                 isSelected: currentIndex == 1,
               ),
@@ -100,10 +100,10 @@ class GradientBottomNavBarPageView extends StatelessWidget {
                 ),
               ),
 
-              // 4. Rewards
+              // 4. Rewards (Gift box icon matching design)
               _buildNavItem(
                 index: 3,
-                icon: LucideIcons.star,
+                icon: LucideIcons.gift,
                 label: 'Rewards',
                 isSelected: currentIndex == 3,
               ),
@@ -128,7 +128,7 @@ class GradientBottomNavBarPageView extends StatelessWidget {
     required String label,
     required bool isSelected,
   }) {
-    final activeColor = AppColors.deepTeal; // #003D46
+    final activeColor = const Color(0xFF009384); // Signature teal green matching dashboard
     final inactiveColor = AppColors.mutedSlate; // #687986
 
     return Expanded(

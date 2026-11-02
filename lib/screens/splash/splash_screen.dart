@@ -134,6 +134,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final compact = size.height < 700;
 
     return Scaffold(
       backgroundColor: const Color(0xFF03141F),
@@ -160,7 +161,7 @@ class _SplashScreenState extends State<SplashScreen>
           SafeArea(
             child: Column(
               children: [
-                SizedBox(height: size.height * 0.16),
+                SizedBox(height: size.height * (compact ? 0.08 : 0.16)),
 
                 // Animated 3D Floating Logo (Clean, No Glowing Aura)
                 AnimatedBuilder(
@@ -174,8 +175,8 @@ class _SplashScreenState extends State<SplashScreen>
                           scale: _logoScale,
                           child: Image.asset(
                             'assets/images/payzen_logo.png',
-                            width: 112,
-                            height: 130,
+                            width: compact ? 96 : 112,
+                            height: compact ? 112 : 130,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -184,7 +185,7 @@ class _SplashScreenState extends State<SplashScreen>
                   },
                 ),
 
-                const SizedBox(height: 22),
+                SizedBox(height: compact ? 14 : 22),
 
                 // -------------------------------------------------------------
                 // One-by-One Staggered Animated "PayZen" Brand Name
@@ -229,7 +230,7 @@ class _SplashScreenState extends State<SplashScreen>
                               child: Text(
                                 char,
                                 style: GoogleFonts.inter(
-                                  fontSize: 44,
+                                  fontSize: compact ? 36 : 44,
                                   fontWeight: FontWeight.w800,
                                   color: letterColor,
                                   letterSpacing: -0.5,
@@ -243,7 +244,7 @@ class _SplashScreenState extends State<SplashScreen>
                   }),
                 ),
 
-                const SizedBox(height: 10),
+                SizedBox(height: compact ? 6 : 10),
 
                 // Subtitles: PAY • SAVE • GROW / TOGETHER
                 AnimatedBuilder(
@@ -374,7 +375,12 @@ class _SplashScreenState extends State<SplashScreen>
                         },
                       ),
 
-                      SizedBox(height: math.max(48.0, size.height * 0.065)),
+                      SizedBox(
+                        height: math.max(
+                          compact ? 24.0 : 48.0,
+                          size.height * (compact ? 0.04 : 0.065),
+                        ),
+                      ),
                     ],
                   ),
                 ),

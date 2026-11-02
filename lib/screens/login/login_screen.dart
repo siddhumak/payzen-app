@@ -24,8 +24,8 @@ class LoginScreen extends StatelessWidget {
               child: const Text('Login'),
             ),
             TextButton(
-              onPressed: () => Get.toNamed(AppRoutes.register),
-              child: const Text('Register'),
+              onPressed: () => Get.toNamed(AppRoutes.loginselect),
+              child: const Text('Create account'),
             ),
           ],
         ),

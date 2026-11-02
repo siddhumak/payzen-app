@@ -89,7 +89,7 @@ class Step3Widget extends StatelessWidget {
                   const SizedBox(height: 10),
 
                   TextButton(
-                    onPressed: () => Get.offNamed(AppRoutes.register),
+                    onPressed: () => Get.offNamed(AppRoutes.loginselect),
                     child: Text(
                       'Skip',
                       style: TextStyle(

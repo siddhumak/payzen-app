@@ -87,7 +87,7 @@ class Step4Widget extends StatelessWidget {
 
                   GradientActionButton(
                     text: 'stepper.started'.tr,
-                    onPressed: () => Get.toNamed("/signup"),
+                    onPressed: () => Get.toNamed("/loginselect"),
                     width: 200,
                   ),
 

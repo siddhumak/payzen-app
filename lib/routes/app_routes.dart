@@ -1,4 +1,4 @@
-﻿import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:payzen_app/screens/Scanner/scanner_screen.dart';
 import 'package:payzen_app/screens/dashboard/dashboard_screen.dart';
 import 'package:payzen_app/screens/first_time/first_main_screen.dart';
@@ -23,8 +23,18 @@ import 'package:payzen_app/screens/quick_transfer/refer/refrel_earn_screen.dart'
 import 'package:payzen_app/screens/recharge_bills/mobile_recharge/review_pay_screen.dart';
 import 'package:payzen_app/screens/mycards/mycard_screen.dart';
 import 'package:payzen_app/screens/register/register_screen.dart';
+import 'package:payzen_app/screens/register/signup_progress_screen.dart';
+import 'package:payzen_app/screens/register/signup_success_screen.dart';
 import 'package:payzen_app/screens/splash/splash_screen.dart';
 import 'package:payzen_app/screens/wallet/wallet_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_add_money_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_activation_screen.dart';
+import 'package:payzen_app/screens/wallet/pan_verification_screen.dart';
+import 'package:payzen_app/screens/wallet/aadhaar_verification_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_details_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_activation_complete_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_address_screen.dart';
+import 'package:payzen_app/screens/wallet/wallet_video_kyc_screen.dart';
 
 class AppRoutes {
   static const home = '/';
@@ -34,6 +44,8 @@ class AppRoutes {
   static const passLogin = '/passLogin';
   static const login = '/login';
   static const register = '/register';
+  static const signupProgress = '/signupProgress';
+  static const signupSuccess = '/signupSuccess';
   static const main = '/main';
   static const dashboard = '/dashboard';
   static const mobilerecharge = '/mobileRecharge';
@@ -42,6 +54,14 @@ class AppRoutes {
   static const paymentSuccess = '/paymentSuccess';
   static const scanner = '/scanner';
   static const wallet = '/wallet';
+  static const walletAddMoney = '/walletAddMoney';
+  static const walletActivation = '/walletActivation';
+  static const walletPanVerification = '/walletPanVerification';
+  static const walletAadhaarVerification = '/walletAadhaarVerification';
+  static const walletDetails = '/walletDetails';
+  static const walletAddress = '/walletAddress';
+  static const walletVideoKyc = '/walletVideoKyc';
+  static const walletActivationComplete = '/walletActivationComplete';
   static const mycards = '/mycards';
   static const toMobile = '/toMobile';
   static const toBank = '/toBank';
@@ -60,8 +80,10 @@ class AppRoutes {
     GetPage(name: loginselect, page: () => LoginSelectionScreen()),
     GetPage(name: otpLogin, page: () => const OtpLoginScreen()),
     GetPage(name: passLogin, page: () => const PasswordLoginScreen()),
-    GetPage(name: login, page: () => const LoginScreen()),
+    GetPage(name: login, page: () => const LoginSelectionScreen()),
     GetPage(name: register, page: () => const RegisterScreen()),
+    GetPage(name: signupProgress, page: () => const SignupProgressScreen()),
+    GetPage(name: signupSuccess, page: () => const SignupSuccessScreen()),
     GetPage(name: main, page: () => const MainScreen()),
     GetPage(name: dashboard, page: () => const DashboardScreen()),
     GetPage(name: mobilerecharge, page: () => const MobileRechargeHomeScreen()),
@@ -94,6 +116,23 @@ class AppRoutes {
 
     GetPage(name: scanner, page: () => const ScannerScreen()),
     GetPage(name: wallet, page: () => const WalletScreen()),
+    GetPage(name: walletAddMoney, page: () => const WalletAddMoneyScreen()),
+    GetPage(name: walletActivation, page: () => const WalletActivationScreen()),
+    GetPage(
+      name: walletPanVerification,
+      page: () => const PanVerificationScreen(),
+    ),
+    GetPage(
+      name: walletAadhaarVerification,
+      page: () => const AadhaarVerificationScreen(),
+    ),
+    GetPage(name: walletDetails, page: () => const WalletDetailsScreen()),
+    GetPage(name: walletAddress, page: () => const WalletAddressScreen()),
+    GetPage(name: walletVideoKyc, page: () => const WalletVideoKycScreen()),
+    GetPage(
+      name: walletActivationComplete,
+      page: () => const WalletActivationCompleteScreen(),
+    ),
 
     GetPage(name: mycards, page: () => const MycardsScreen()),
     GetPage(name: toMobile, page: () => const ToMobileScreen()),

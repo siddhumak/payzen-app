@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:payzen_app/constant/colors.dart';
 
@@ -20,74 +20,115 @@ class PopularBankGrid extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '🏦   Popular Banks',
+          'Popular banks',
           style: GoogleFonts.inter(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+            fontWeight: FontWeight.w800,
+            color: AppColors.deepNavyText,
             fontSize: 16,
           ),
         ),
         const SizedBox(height: 12),
-        GridView.builder(
-          shrinkWrap: true,
-          itemCount: banks.length,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisExtent: 100,
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-          ),
-          itemBuilder: (_, i) {
-            final bank = banks[i];
-            final isSelected = selectedBank == bank['name']; // works with null
-            return GestureDetector(
-              onTap: () => onBankSelected(bank['name']!),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: isSelected ? Colors.indigo.shade50 : Colors.white,
-                  border: Border.all(
-                    color:
-                        isSelected ? AppColors.primary : Colors.grey.shade300,
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow:
-                      isSelected
-                          ? [
-                            BoxShadow(
-                              color: Colors.indigo.shade100,
-                              blurRadius: 6,
-                              offset: const Offset(0, 2),
-                            ),
-                          ]
-                          : [],
-                ),
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Color(
-                        int.parse('0xFF${bank['color']!.substring(1)}'),
-                      ),
-                      backgroundImage: AssetImage(bank['logo']!),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      bank['name']!,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
+        Column(
+          children: [
+            for (var i = 0; i < banks.length; i++) ...[
+              _bankRow(banks[i]),
+              if (i != banks.length - 1) const SizedBox(height: 9),
+            ],
+          ],
         ),
       ],
+    );
+  }
+
+  Widget _bankRow(Map<String, String> bank) {
+    final selected = selectedBank == bank['name'];
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOutCubic,
+      decoration: BoxDecoration(
+        color: selected ? const Color(0xFFEAF8F4) : AppColors.pureWhite,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: selected ? AppColors.electricMint : AppColors.borderLight,
+          width: selected ? 1.5 : 1,
+        ),
+        boxShadow:
+            selected
+                ? const [
+                  BoxShadow(
+                    color: Color(0x1A19C6AE),
+                    blurRadius: 12,
+                    offset: Offset(0, 4),
+                  ),
+                ]
+                : const [],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () => onBankSelected(bank['name']!),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+            child: Row(
+              children: [
+                Container(
+                  width: 42,
+                  height: 42,
+                  padding: const EdgeInsets.all(7),
+                  decoration: const BoxDecoration(
+                    color: AppColors.warmIvory,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    bank['logo']!,
+                    fit: BoxFit.contain,
+                    errorBuilder:
+                        (_, __, ___) => const Icon(
+                          Icons.account_balance_rounded,
+                          color: AppColors.deepTeal,
+                          size: 22,
+                        ),
+                  ),
+                ),
+                const SizedBox(width: 13),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        bank['name']!,
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          color: AppColors.deepNavyText,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Bank account',
+                        style: GoogleFonts.inter(
+                          fontSize: 12,
+                          color: AppColors.mutedSlate,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 180),
+                  child: Icon(
+                    selected ? Icons.check_circle_rounded : Icons.chevron_right,
+                    key: ValueKey(selected),
+                    color: selected ? AppColors.deepTeal : AppColors.mutedSlate,
+                    size: 22,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

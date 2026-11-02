@@ -64,9 +64,22 @@ class _LoginSelectionScreenState extends State<LoginSelectionScreen>
     if (_isValidNumber) {
       Get.toNamed(
         AppRoutes.otpLogin,
-        arguments: {'phone': _mobileController.text.trim()},
+        arguments: {'phone': _mobileController.text.trim(), 'flow': 'login'},
       );
     }
+  }
+
+  void _onSignUp() {
+    if (_isValidNumber) {
+      Get.toNamed(
+        AppRoutes.otpLogin,
+        arguments: {'phone': _mobileController.text.trim(), 'flow': 'signup'},
+      );
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Enter a valid 10-digit mobile number to create an account.')),
+    );
   }
 
   @override
@@ -291,6 +304,48 @@ class _LoginSelectionScreenState extends State<LoginSelectionScreen>
                                   color: Colors.white,
                                 ),
                               ],
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 10),
+                        Center(
+                          child: Text(
+                            'By continuing, you agree to PayZen Terms & Conditions and Privacy Policy.',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.inter(
+                              fontSize: 11.5,
+                              color: AppColors.mutedSlate,
+                              height: 1.35,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 14),
+                        Center(
+                          child: GestureDetector(
+                            onTap: _onSignUp,
+                            behavior: HitTestBehavior.opaque,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 6),
+                              child: RichText(
+                                text: TextSpan(
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    color: AppColors.mutedSlate,
+                                  ),
+                                  children: [
+                                    const TextSpan(text: 'New to PayZen? '),
+                                    TextSpan(
+                                      text: 'Create account',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.deepTeal,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         ),
